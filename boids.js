@@ -40,7 +40,7 @@ class Boids {
     }
     assignDirection() {
         this.angle = getRndInteger(0, 2 * Math.PI);
-        // this.angle = (Math.PI / 180) * 180;
+
     }
     assignVelocity() {
         this.velocity = getRndInteger(0.1, 0.101);
@@ -79,14 +79,12 @@ function draw_triangles(numbers) {
 
         var a = getRndInteger(100, window.innerWidth - 10) + Math.floor(Math.random() * 10);
         var b = getRndInteger(100, window.innerHeight - 10) + Math.floor(Math.random() * 10);
-        // console.log(a);
-        // var k = Math.random() * 100;
+
         triangle = new Boids(a, b);
         triangle.assignVelocity();
         triangle.assignDirection();
         triangle.make_triangle();
-        // console.log(triangle.angle * (180 / Math.PI));
-        // console.log("b=", triangle.b);
+
 
         triangle_array.push(triangle);
 
@@ -177,12 +175,12 @@ function move_all_boids_to_new_positions() {
         v1 = v[0];
         v2 = v[1];
         v3 = v[2];
-        if (flag && i <= 10) {
-            // console.log(v1[0], v1[1]);
-            console.log(v[3]);
-            if (i == 9)
-                flag = false;
-        }
+        // if (flag && i <= 10) {
+        //     // console.log(v1[0], v1[1]);
+        //     console.log(v[3]);
+        //     if (i == 9)
+        //         flag = false;
+        // }
 
         triangle_array[i].x = (triangle_array[i].x + v1[0] + v2.x + (v3 * Math.cos(v[3] * 100) / 10)) % width;
         triangle_array[i].y = (triangle_array[i].y + v1[1] + v2.y + (v3 * Math.sin(v[3] * 100) / 10)) % height;;
