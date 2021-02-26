@@ -48,14 +48,14 @@ class Boids {
     movinDirection(ang) {
         this.x1 = this.x - Math.cos(this.angle + ang) * 15;
         this.y1 = this.y - Math.sin(this.angle + ang) * 15;
-        c.beginPath();
-        c.strokeStyle = "green";
-        c.lineWidth = 5;
-        c.moveTo(this.x, this.y);
-        c.lineTo(this.x1, this.y1);
-        // c.lineTo(this.x1 + 5, this.y1 + 5); 
-        c.closePath();
-        c.stroke();
+        // c.beginPath();
+        // c.strokeStyle = "green";
+        // c.lineWidth = 5;
+        // c.moveTo(this.x, this.y);
+        // c.lineTo(this.x1, this.y1);
+        // // c.lineTo(this.x1 + 5, this.y1 + 5); 
+        // c.closePath();
+        // c.stroke();
 
 
     }
@@ -94,7 +94,7 @@ function draw_triangles(numbers) {
 }
 
 
-draw_triangles(30);
+draw_triangles(100);
 N = triangle_array.length; //no of boids 
 
 
@@ -106,7 +106,7 @@ N = triangle_array.length; //no of boids
 function rule(b, j) { //the boids try to fly towards the center of mass of the neighboring boids.
     //the boids try to stay away from each other -- for a given threshold
     // the boids try to match their velocities with each other-- have to be certain distance with each other
-    pc = new Boids(0, 0);
+    pc = new Boids(width / 2, height / 2);
 
     c_ = new Boids(0, 0);
     l = new Boids(0, 0);
@@ -115,7 +115,7 @@ function rule(b, j) { //the boids try to fly towards the center of mass of the n
     for (var k = 0; k < N; k++) {
         distance_betweenX = Math.abs(b.x - triangle_array[k].x);
         distance_betweenY = Math.abs(b.y - triangle_array[k].y);
-        if (j != k && (distance_betweenX < 10) && (distance_betweenY < 10)) {
+        if (j != k && (distance_betweenX < 50) && (distance_betweenY < 50)) {
             pc.x += triangle_array[k].x;
             pc.y += triangle_array[k].y;
         }
@@ -147,7 +147,7 @@ function rule(b, j) { //the boids try to fly towards the center of mass of the n
         offsetAngle = (l.angle - b.angle) / (80);
     } else offsetAngle = b.angle;
     return [
-        [(pc.x - b.x) / 2000, (pc.y - b.y) / 2000], c_, offsetVelocity, offsetAngle
+        [(pc.x - b.x) / 5000, (pc.y - b.y) / 5000], c_, offsetVelocity, offsetAngle
     ];
 
 }
