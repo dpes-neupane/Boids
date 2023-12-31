@@ -1,18 +1,39 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>BOIDS</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        
-        <canvas> </canvas>
+        <head>
+                <meta charset="utf-8">
+                <title>BOIDS</title>
+                <!-- <link media="stylesheet" href="style.css"> -->
+                <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+                <style>
+* {
+        box-sizing: border-box;
+}
 
-        <script src="boids.js" async defer></script>
-    </body>
+.webgl {
+        position: fixed;
+        top: 0;
+        left: 0;
+        outline: none;
+}
+
+canvas {
+        background-color: black;
+        width: 100vw !important;
+        height: 100vh !important;
+}
+
+html,
+body {
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+}                </style>
+        </head>
+        <body>
+
+
+                <script type="module" src="main.js" ></script>
+        </body>
 </html>
